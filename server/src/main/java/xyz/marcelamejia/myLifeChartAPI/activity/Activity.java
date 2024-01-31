@@ -1,8 +1,9 @@
-package xyz.marcelamejia.myLifeChartAPI.activities;
+package xyz.marcelamejia.myLifeChartAPI.activity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import xyz.marcelamejia.myLifeChartAPI.user.User;
 
 import java.time.OffsetDateTime;
 
@@ -30,17 +31,23 @@ public class Activity {
     @Column
     private Integer distance;
 
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
     public Activity () {}
 
     public Activity (String name,
                      String category,
                      OffsetDateTime start,
                      OffsetDateTime end,
-                     Integer distance) {
+                     Integer distance,
+                     User user) {
         this.name = name;
         this.category = category;
         this.start = start;
         this.end = end;
         this.distance = distance;
+        this.user = user;
     }
 }

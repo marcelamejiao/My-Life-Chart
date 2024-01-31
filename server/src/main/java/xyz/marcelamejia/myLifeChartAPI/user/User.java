@@ -3,6 +3,10 @@ package xyz.marcelamejia.myLifeChartAPI.user;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import xyz.marcelamejia.myLifeChartAPI.activity.Activity;
+
+import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -18,6 +22,9 @@ public class User {
 
     @Column
     private Byte age;
+
+    @OneToMany(mappedBy = "user")
+    private List<Activity> activities;
 
     public User() {}
 
