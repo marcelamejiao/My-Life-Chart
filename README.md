@@ -38,8 +38,6 @@ npm run dev
 
 ## **Preview**
 
-* **Calendar**
-
 ![]()
 
 ## **Deployed link**
