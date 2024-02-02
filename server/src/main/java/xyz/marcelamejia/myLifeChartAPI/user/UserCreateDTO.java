@@ -1,6 +1,8 @@
 package xyz.marcelamejia.myLifeChartAPI.user;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +13,8 @@ public class UserCreateDTO {
     @NotBlank
     private String name;
 
-    @NotBlank
+    @Min(0)
+    @NotNull
     private Byte age;
 
     public UserCreateDTO(String name,
