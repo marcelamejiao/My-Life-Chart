@@ -1,5 +1,6 @@
 package xyz.marcelamejia.myLifeChartAPI.activity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,7 @@ public class Activity {
     @Column
     private Integer distance;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
