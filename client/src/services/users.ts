@@ -12,7 +12,7 @@ export const getAllUsers = async (): Promise<User[]> => {
     return await response.json();
 };
 
-export const getUserById = async (id: number) => {
+export const getUserById = async (id: number): Promise<User> => {
     const response = await fetch(`${apiHost}/users/${id}`, {
         headers: {
             "Content-Type": "application/json",
