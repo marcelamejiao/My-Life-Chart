@@ -10,13 +10,32 @@ export const getAllActivities = async (): Promise<Activity[]> => {
         },
     });
 
-    const usersData = await response.json();
+    const activitiesData = await response.json();
 
-    return usersData.map((userData: ActivityJson) => {
+    return activitiesData.map((activityData: ActivityJson) => {
         return {
-            ...userData,
-            start: new Date(userData.start),
-            end: new Date(userData.end),
+            ...activityData,
+            start: new Date(activityData.start),
+            end: new Date(activityData.end),
+        }
+    }); 
+};
+
+export const getAllUserActivities = async (userId: number): Promise<Activity[]> => {
+    const response = await fetch(`${apiHost}/users/${userId}/activities`, {
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+    });
+
+    const userActivitiesData = await response.json();
+
+    return userActivitiesData.map((userActivityData: ActivityJson) => {
+        return {
+            ...userActivityData,
+            start: new Date(userActivityData.start),
+            end: new Date(userActivityData.end),
         }
     }); 
 };
@@ -29,13 +48,27 @@ export const getActivityById = async (id: number): Promise<Activity> => {
         },
     }); 
 
-    const userData:ActivityJson = await response.json();
+    const activityData:ActivityJson = await response.json();
 
-        return {
-            ...userData,
-            start: new Date(userData.start),
-            end: new Date(userData.end),
-        }
+    return {
+        ...activityData,
+        start: new Date(activityData.start),
+        end: new Date(activityData.end),
+    }
+};
+
+export const createUserActivity = async (data: FormValues, userId: number) => {
+    const response = await fetch(`${apiHost}/users/${userId}/activities`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+        throw new Error("Could not create an activity for this user");
+    }
 };
 
 export const deleteActivity = async (id: number) => {
