@@ -1,3 +1,4 @@
+import { CreateUserFormValues } from "../components/CreateUserForm/CreateUserForm";
 import User from "../models/users";
 
 const apiHost: string = import.meta.env.VITE_API_HOST ?? 'http://localhost:8080';
@@ -22,7 +23,7 @@ export const getUserById = async (id: number): Promise<User> => {
     return await response.json();
 };
 
-export const createUser = async (data: FormValues) => {
+export const createUser = async (data: CreateUserFormValues) => {
     const response = await fetch(`${apiHost}/users`, {
         method: "POST",
         headers: {
