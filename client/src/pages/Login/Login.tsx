@@ -50,6 +50,10 @@ export default function Login({ setSelectedUser }: Props) {
 		}
 	};
 
+  const navigateToRegister = () => {
+    navigate('/register');
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -68,12 +72,20 @@ export default function Login({ setSelectedUser }: Props) {
         )}
       </div>
       <div>
-			<input
-          type="submit"
-          value="Login"
-          className="cursor-pointer rounded-md bg-orange-500 text-white p-1 w-20"
+        <input
+            type="submit"
+            value="Login"
+            className="cursor-pointer rounded-md bg-orange-500 text-white p-1 w-20"
         />
 			</div>
+      <div>
+      <input
+          onClick={navigateToRegister}
+          type="url"
+          value="Register"
+          className="cursor-pointer underline-offset-1"
+      />
+      </div>
     </form>
   )
 }
