@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form"
 import { createUser } from "../../services/users";
+import { useNavigate } from "react-router-dom";
 
 export type CreateUserFormValues = {
 	name: string,
@@ -9,6 +10,7 @@ export type CreateUserFormValues = {
 
 export default function CreateUserForm() {
 	const [error, setError] = useState(false);
+	const navigate = useNavigate();
 
 	const {
 		register,
@@ -23,6 +25,7 @@ export default function CreateUserForm() {
 				setError(false);
 			}
 			await createUser(data);
+			navigate("/login")
 		} catch (e) {
 			setError(true);
 		}
