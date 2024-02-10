@@ -79,12 +79,11 @@ export default function Login({ setSelectedUser }: Props) {
         />
 			</div>
       <div>
-      <input
+        <p           
           onClick={navigateToRegister}
-          type="url"
-          value="Register"
           className="cursor-pointer underline-offset-1"
-      />
+        >Register
+        </p>
       </div>
     </form>
   )
