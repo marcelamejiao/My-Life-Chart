@@ -52,7 +52,6 @@ export default function Login({ setSelectedUser }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <p>My Life Chart</p>
       <div>
         <select 
           id="users"

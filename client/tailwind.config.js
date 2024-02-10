@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{ts,tsx}"
   ],
   theme: {
+    fontFamily: {
+      'title': ['"Permanent Marker"'],
+    },
     extend: {},
   },
   plugins: [],

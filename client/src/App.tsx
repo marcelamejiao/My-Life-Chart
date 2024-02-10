@@ -11,6 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <p className="font-title">My Life Chart</p>
       <Routes>
         <Route 
           path="/register"
