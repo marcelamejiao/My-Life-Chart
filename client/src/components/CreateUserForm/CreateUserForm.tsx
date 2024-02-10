@@ -25,7 +25,7 @@ export default function CreateUserForm() {
 				setError(false);
 			}
 			await createUser(data);
-			navigate("/login")
+			navigate("/")
 		} catch (e) {
 			setError(true);
 		}

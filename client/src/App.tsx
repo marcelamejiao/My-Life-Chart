@@ -1,9 +1,9 @@
 import { useState } from "react"
-import CreateUserForm from "./components/CreateUserForm/CreateUserForm"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import User from "./models/users";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Register from "./pages/Register/Register";
 
 function App() {
 
@@ -16,12 +16,12 @@ function App() {
         <Route 
           path="/register"
           element={
-            <CreateUserForm 
+            <Register
             /> 
           }
         />
        <Route 
-          path="/login"
+          path="/"
           element={
             <Login
               setSelectedUser={setSelectedUser}
