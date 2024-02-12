@@ -59,7 +59,7 @@ export default function CreateUserForm() {
         )}
 			</div>
 			<div>
-			<input
+				<input
           type="submit"
           value="Save"
           className="cursor-pointer rounded-md bg-orange-500 text-white p-1 w-20"

@@ -4,10 +4,20 @@ import Login from "./pages/Login/Login";
 import User from "./models/users";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Register from "./pages/Register/Register";
+import CreateActivyForm from "./components/CreateActivityForm/CreateActivityForm";
 
 function App() {
 
-  const [selectedUser, setSelectedUser] = useState<User|null>(null);
+  // Load the user from session storage
+  const userJson: string | null = sessionStorage.getItem("selectedUser");
+  const loadedUser = userJson === null ? null : JSON.parse(userJson);  
+
+  const updateSelectedUser = (user: User|null) => {
+    sessionStorage.setItem("selectedUser", JSON.stringify(user));
+    setSelectedUser(user);
+  }
+
+  const [selectedUser, setSelectedUser] = useState<User|null>(loadedUser);
 
   return (
     <BrowserRouter>
@@ -24,7 +34,7 @@ function App() {
           path="/"
           element={
             <Login
-              setSelectedUser={setSelectedUser}
+              setSelectedUser={updateSelectedUser}
             /> 
           }
         />
@@ -34,6 +44,14 @@ function App() {
             <Dashboard
               selectedUser={selectedUser}
             /> 
+          }
+        />
+        <Route
+          path="/form"
+          element={
+            <CreateActivyForm 
+              selectedUser={selectedUser}
+            />
           }
         />
       </Routes>
