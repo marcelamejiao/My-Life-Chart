@@ -1,3 +1,4 @@
+import { CreateActivityFormValues } from "../components/CreateActivityForm/CreateActivityForm";
 import Activity, { ActivityJson } from "../models/activities";
 
 const apiHost: string = import.meta.env.VITE_API_HOST ?? 'http://localhost:8080';
@@ -57,7 +58,7 @@ export const getActivityById = async (id: number): Promise<Activity> => {
     }
 };
 
-export const createUserActivity = async (data: FormValues, userId: number) => {
+export const createUserActivity = async (data: CreateActivityFormValues, userId: number) => {
     const response = await fetch(`${apiHost}/users/${userId}/activities`, {
         method: "POST",
         headers: {
