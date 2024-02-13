@@ -44,7 +44,7 @@ export default function Login({ setSelectedUser }: Props) {
 				setError(false);
 			}
       setSelectedUser(user);
-      navigate('/form');
+      navigate('/dashboard');
 		} catch (e) {
 			setError(true);
 		}
