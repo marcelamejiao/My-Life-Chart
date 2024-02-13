@@ -5,9 +5,12 @@ type Props = {
 };
 
 const Dashboard = ({ selectedUser }: Props) => {
-  return (<div>
-      {selectedUser?.name}
-  </div>);
+  return (
+    <div>
+        <h1>Welcome</h1>
+        {selectedUser?.name}
+    </div>
+  );
 };
 
 export default Dashboard;
