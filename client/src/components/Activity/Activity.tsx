@@ -1,3 +1,7 @@
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import duration from "dayjs/plugin/duration";
+import relativeTime from 'dayjs/plugin/relativeTime';
 import ActivityModel from "../../models/activities";
 
 type Props = {
@@ -6,18 +10,22 @@ type Props = {
 
 const Activity = ({ activity }: Props) => {
 
-  // TODO Show the activity date
-  const startTime = activity.start;
-  console.log(startTime);
+  // Show the activity date
+  dayjs.extend(localizedFormat)
+  const startDate = dayjs(activity.start).format('llll');
 
-  // TODO Calculate duration of the activity 
+  // Calculate duration of the activity
+  dayjs.extend(duration);
+  dayjs.extend(relativeTime);
+  const durationTime = dayjs.duration(dayjs(activity.end).diff(activity.start)).format("H [hours] m [minutes]");
 
   return (
     <>
       <h1>{activity.name}</h1>
       <h2>{activity.category}</h2>
       <p>{activity.distance}</p>
-      <p>Duration:</p>
+      <p>{startDate}</p>
+      <p>Duration: {durationTime} </p>
     </>
   )
 }
