@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import User from "./models/users";
@@ -7,6 +7,8 @@ import Register from "./pages/Register/Register";
 import CreateActivyForm from "./components/CreateActivityForm/CreateActivityForm";
 import Layout from "./pages/Layout/Layout";
 import ActivitiesPage from "./pages/ActivitiesPage/ActivitiesPage";
+import { getAllUserActivities } from "./services/activities";
+import Activity from "./models/activities";
 
 function App() {
 
@@ -20,6 +22,17 @@ function App() {
   }
 
   const [selectedUser, setSelectedUser] = useState<User|null>(loadedUser);
+  const [activities, setActivities] = useState<Activity[]>([]);
+
+  useEffect(() => {
+    if (!selectedUser) {
+      return;
+    }
+
+    getAllUserActivities(selectedUser.id).then((res) => {
+      setActivities(res);
+    });
+  }, [selectedUser]);
 
   return (
     <BrowserRouter>
@@ -65,7 +78,9 @@ function App() {
           element={
             <Layout 
               selectedUser={selectedUser}>
-              <ActivitiesPage />
+              <ActivitiesPage
+                activities={activities}
+              />
             </Layout>
           }
         />
