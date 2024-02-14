@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Register from "./pages/Register/Register";
 import CreateActivyForm from "./components/CreateActivityForm/CreateActivityForm";
 import Layout from "./pages/Layout/Layout";
+import ActivitiesPage from "./pages/ActivitiesPage/ActivitiesPage";
 
 function App() {
 
@@ -56,6 +57,15 @@ function App() {
               <CreateActivyForm 
                 selectedUser={selectedUser}
               />
+            </Layout>
+          }
+        />
+        <Route
+          path="/activities"
+          element={
+            <Layout 
+              selectedUser={selectedUser}>
+              <ActivitiesPage />
             </Layout>
           }
         />
