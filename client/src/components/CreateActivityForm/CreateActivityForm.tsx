@@ -2,9 +2,12 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { createUserActivity } from "../../services/activities";
 import User from "../../models/users";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
-  selectedUser: User | null
+  selectedUser: User | null,
+	setAdded: (added: number) => void,
+  added: number
 }
 
 export type CreateActivityFormValues = {
@@ -15,8 +18,9 @@ export type CreateActivityFormValues = {
   end: string
 }
 
-const CreateActivyForm = ({ selectedUser }:Props) => {
+const CreateActivyForm = ({ selectedUser, setAdded, added }:Props) => {
 	const [error, setError] = useState(false);
+	const navigate = useNavigate();
   
   const {
 		register,
@@ -43,6 +47,8 @@ const CreateActivyForm = ({ selectedUser }:Props) => {
 				setError(false);
 			}
 			await createUserActivity(data, selectedUser.id);
+			setAdded(added + 1);
+			navigate("/activities");
 		} catch (e) {
 			setError(true);
 		}

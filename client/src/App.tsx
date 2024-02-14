@@ -23,6 +23,7 @@ function App() {
 
   const [selectedUser, setSelectedUser] = useState<User|null>(loadedUser);
   const [activities, setActivities] = useState<Activity[]>([]);
+  const [added, setAdded] = useState(0);
 
   useEffect(() => {
     if (!selectedUser) {
@@ -32,7 +33,7 @@ function App() {
     getAllUserActivities(selectedUser.id).then((res) => {
       setActivities(res);
     });
-  }, [selectedUser]);
+  }, [selectedUser, added]);
 
   return (
     <BrowserRouter>
@@ -69,6 +70,8 @@ function App() {
               selectedUser={selectedUser}>
               <CreateActivyForm 
                 selectedUser={selectedUser}
+                setAdded={setAdded}
+                added={added}
               />
             </Layout>
           }
