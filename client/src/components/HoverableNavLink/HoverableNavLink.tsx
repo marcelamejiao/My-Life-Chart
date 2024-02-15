@@ -11,7 +11,7 @@ const HoverableNavLink = ({ pathName, linkText }: Props) => {
     return (
         <NavLink
             to={pathName}
-            className={`hover:border-b-2 border-fucsia ${location.pathname === pathName ? "border-b-2" : ""}`}>
+            className={`hover:border-b border-orange-400 p-1 ${location.pathname === pathName ? "border-b" : ""}`}>
             {linkText}
         </NavLink>
     );

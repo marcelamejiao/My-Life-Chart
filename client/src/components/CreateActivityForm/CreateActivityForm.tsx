@@ -118,7 +118,7 @@ const CreateActivyForm = ({ selectedUser, setAdded, added }:Props) => {
         <input
           type="submit"
           value="Create"
-          className="cursor-pointer rounded-md bg-orange-500 text-white p-1 w-20"
+          className="cursor-pointer rounded-md bg-amber-500 hover:bg-lime-500 text-white p-1 w-20"
         />
       </div>
     </form>

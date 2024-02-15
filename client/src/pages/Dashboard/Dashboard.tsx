@@ -25,7 +25,7 @@ const Dashboard = ({ selectedUser }: Props) => {
           <div>
             <button 
               onClick={navigateToActivities}
-              className="cursor-pointer rounded-md bg-orange-500 text-white p-2 w-30">
+              className="cursor-pointer rounded-md  bg-amber-500 hover:bg-lime-500 text-white p-2 w-30">
               My Activities
             </button>
           </div>

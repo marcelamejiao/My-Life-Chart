@@ -12,7 +12,7 @@ const Layout = ({ children, selectedUser }: IProps) => {
       <SideBar 
         selectedUser={selectedUser}
       />  
-      <div className="grow h-full">
+      <div className="grow h-full bg-gradient-to-t from-slate-50 to-white">
         {children}
       </div>
     </>
