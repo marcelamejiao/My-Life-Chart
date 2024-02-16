@@ -33,6 +33,7 @@ npm run dev
 * React
 * Typescript
 * Tailwind
+* ChartJs
 * DayJS
 * Java
 * Spring
