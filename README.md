@@ -41,11 +41,17 @@ npm run dev
   
 ## **Preview**
 
-![]()
+* **Homepage**
+
+![Homepage](./assets/img/homepage.png)
+
+* **Chart: Km ran per week in a semester**
+
+![Chart](./assets/img/chart.png)
 
 ## **Deployed link**
 
-💡 Live version: [Click here!]()
+💡 Live version: [Coming soon!]()
 
 ## **Future Development**
 
