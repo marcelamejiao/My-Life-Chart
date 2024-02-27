@@ -37,7 +37,8 @@ npm run dev
 * DayJS
 * Java
 * Spring
-
+* MySQL
+  
 ## **Preview**
 
 ![]()
