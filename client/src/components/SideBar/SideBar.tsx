@@ -37,6 +37,12 @@ const SideBar = ({ selectedUser }:Props) => {
             linkText="My Activities">
         </HoverableNavLink>
       </li>
+      <li className="hover:text-white hover:translate-x-0.5">
+        <HoverableNavLink
+            pathName="/reports"
+            linkText="My Reports">
+        </HoverableNavLink>
+      </li>
     </ul>
   </div>
 

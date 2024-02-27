@@ -9,6 +9,7 @@ import Layout from "./pages/Layout/Layout";
 import ActivitiesPage from "./pages/ActivitiesPage/ActivitiesPage";
 import { getAllUserActivities } from "./services/activities";
 import Activity from "./models/activities";
+import ReportsPage from "./pages/ReportsPage/ReportsPage";
 
 function App() {
 
@@ -83,6 +84,16 @@ function App() {
               selectedUser={selectedUser}>
               <ActivitiesPage
                 activities={activities}
+              />
+            </Layout>
+          }
+        />
+        <Route
+          path="/reports"
+          element={
+            <Layout 
+              selectedUser={selectedUser}>
+              <ReportsPage
               />
             </Layout>
           }
