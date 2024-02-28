@@ -7,6 +7,8 @@ export default {
   theme: {
     fontFamily: {
       'title': ['"Permanent Marker"'],
+      'mukta': ['"Mukta"'],
+      'inter': ['"Inter"']
     },
     extend: {},
   },

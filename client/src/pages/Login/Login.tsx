@@ -57,14 +57,14 @@ export default function Login({ setSelectedUser }: Props) {
   return (
     <>
       <div className="flex flex-col justify-center pr-4 pt-2">
-      <h1 className="font-title text-4xl tracking-wide text-center text-sky-800 py-4">My Life Chart</h1>
+      <h1 className="font-title text-4xl tracking-wide text-center text-sky-800 py-4 animate-pulse">My Life Chart</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-center m-2">
           <select 
             id="users"
             {...register("selectedUserId",
             {required: true})}
-            className="rounded p-2 text-sky-800 shadow-sm shadow-black "
+            className="rounded py-1 px-2 text-sky-800 shadow-sm shadow-black hover:bg-slate-50 "
           >
             <option value="">Select user...</option>
             {allUsers.map((user) => {
@@ -77,17 +77,18 @@ export default function Login({ setSelectedUser }: Props) {
         </div>
         <div className="flex justify-center m-2">
           <input
-              type="submit"
-              value="Login"
-              className="cursor-pointer rounded-md  shadow-sm shadow-black  bg-amber-500 hover:bg-lime-500 text-white p-1 w-20"
+            type="submit"
+            value="Login"
+            className="w-28 cursor-pointer text-sm rounded-md border border-amber-500 border-b-2 hover:border-b text-amber-500 px-2 py-1 w-30 hover:scale-105 hover:bg-slate-150"
           />
         </div>
         <div className="flex justify-center m-2">
-          <p           
+          <input           
             onClick={navigateToRegister}
-            className="text-center cursor-pointer rounded-md  shadow-sm shadow-black  bg-amber-500 hover:bg-lime-500 text-white p-1 w-20"
-          >Register
-          </p>
+            type="button"
+            value="Register"
+            className="w-28 cursor-pointer text-sm rounded-md border border-amber-500 border-b-2 hover:border-b text-amber-500 px-2 py-1 w-30 hover:scale-105 hover:bg-slate-150"
+          />
         </div>
       </form>
       </div>
