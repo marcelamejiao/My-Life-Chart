@@ -1,6 +1,7 @@
-
 import { useNavigate } from "react-router-dom";
 import User from "../../models/users";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMedal, faChartSimple }from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
   selectedUser: User|null
@@ -18,14 +19,13 @@ const Dashboard = ({ selectedUser }: Props) => {
     navigate("/reports")
   }
 
-
   return (
     <div className="p-4">
         <h1 className="text-2xl py-2 animate-pulse text-sky-700 text-center bg-gray-100 font-bold tracking-widest">Welcome {selectedUser?.name}</h1>
-        <div className="m-2 w-80 p-2 rounded shadow-md hover:bg-slate-50">
+        <div className="ml-6 my-4 w-80 p-2 rounded shadow-md hover:bg-slate-100">
           <div className="p-3">
-            <h2 className="text-gray-600 font-semibold text-xl">Activities</h2>
-            <p className="p-2 text-gray-500">This section allows you to see a list of your activities.</p>
+            <h2 className="text-gray-600  font-semibold text-xl"><FontAwesomeIcon icon={faMedal} className="px-2 text-amber-500" />Activities</h2>
+            <p className="px-4 py-2 text-gray-500 text-sm">This section allows you to see a list of your activities.</p>
           </div>
           <div className="flex items-center justify-end">
             <input 
@@ -36,10 +36,10 @@ const Dashboard = ({ selectedUser }: Props) => {
             />
           </div>
         </div>
-        <div className="m-2 w-80 p-2 rounded shadow-md hover:bg-slate-50">
+        <div className="ml-6 my-4 w-80 p-2 rounded shadow-md hover:bg-slate-100">
           <div className="p-3">
-            <h2 className="text-gray-600 font-semibold text-xl">Reports</h2>
-            <p className="p-2 text-gray-500">This section allows you to see charts of your activities.</p>
+            <h2 className="text-gray-600 font-semibold text-xl"><FontAwesomeIcon icon={faChartSimple} className="px-2 text-amber-500" />Reports</h2>
+            <p className="px-4 py-2 text-gray-500 text-sm">This section allows you to see charts of your activities.</p>
           </div>
           <div className="flex items-center justify-end">
             <input 
