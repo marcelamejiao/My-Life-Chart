@@ -53,26 +53,29 @@ const ReportsPage = () => {
   }, []);
 
   return (
-    <div className="m-3 pl-2 pr-4 py-3 shadow-md rounded">
-      <Bar
-          options={options}
-          data={
-            {
-              labels: reports.map((report: CategoryWeeklyReport) => {
-                return report.week;
-              }),
-              datasets: [
-                {
-                  label: 'Km',
-                  data: reports.map((report: CategoryWeeklyReport) => {
-                    return report.km;
-                  }),
-                  backgroundColor: 'rgba(231, 210, 251)'
-                }
-              ]
+    <div className="p-2">
+      <h1 className="text-2xl py-2 animate-pulse text-sky-700 text-center bg-gray-100 font-bold tracking-widest">My Reports</h1>
+      <div className="m-3 pl-2 pr-4 py-3 shadow-md rounded">
+        <Bar
+            options={options}
+            data={
+              {
+                labels: reports.map((report: CategoryWeeklyReport) => {
+                  return report.week;
+                }),
+                datasets: [
+                  {
+                    label: 'Km',
+                    data: reports.map((report: CategoryWeeklyReport) => {
+                      return report.km;
+                    }),
+                    backgroundColor: 'rgba(231, 210, 251)'
+                  }
+                ]
+              }
             }
-          }
-      />
+        />
+      </div>
     </div>
   )
 }

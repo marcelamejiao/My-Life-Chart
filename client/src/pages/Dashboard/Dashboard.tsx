@@ -24,8 +24,8 @@ const Dashboard = ({ selectedUser }: Props) => {
         <h1 className="text-2xl py-2 animate-pulse text-sky-700 text-center bg-gray-100 font-bold tracking-widest">Welcome {selectedUser?.name}</h1>
         <div className="m-2 w-80 p-2 rounded shadow-md hover:bg-slate-50">
           <div className="p-3">
-            <h2 className="text-gray-500 font-semibold text-xl">Activities</h2>
-            <p>This section allows you to see a list of your activities.</p>
+            <h2 className="text-gray-600 font-semibold text-xl">Activities</h2>
+            <p className="p-2 text-gray-500">This section allows you to see a list of your activities.</p>
           </div>
           <div className="flex items-center justify-end">
             <input 
@@ -38,8 +38,8 @@ const Dashboard = ({ selectedUser }: Props) => {
         </div>
         <div className="m-2 w-80 p-2 rounded shadow-md hover:bg-slate-50">
           <div className="p-3">
-            <h2 className="text-gray-500 font-semibold text-xl">Reports</h2>
-            <p>This section allows you to see charts of your activities.</p>
+            <h2 className="text-gray-600 font-semibold text-xl">Reports</h2>
+            <p className="p-2 text-gray-500">This section allows you to see charts of your activities.</p>
           </div>
           <div className="flex items-center justify-end">
             <input 
