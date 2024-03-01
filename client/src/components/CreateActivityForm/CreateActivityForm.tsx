@@ -3,6 +3,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { createUserActivity } from "../../services/activities";
 import User from "../../models/users";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock }from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
   selectedUser: User | null,
@@ -55,73 +57,89 @@ const CreateActivyForm = ({ selectedUser, setAdded, added }:Props) => {
 	};
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
-      <h2>My new activity</h2>
-      <div className="flex flex-col gap-y-1 m-3">
-				<label>Activity name:</label>
-				<input
-				{...register("name",
-					{required: true})}
-					aria-invalid={errors.name ? "true" : "false"}
-				/>
-				{errors.name?.type === "required" && (
-          <p role="alert" className="text-red-500">Activity name is required</p>
-        )}
+		<div className="p-2">
+			<h1 className="text-2xl py-2 animate-pulse text-sky-700 text-center bg-gray-100 font-bold tracking-widest">My new activity</h1>
+			<div className="flex justify-center items-center">
+				<form onSubmit={handleSubmit(onSubmit)} className="w-3/4 gap-y-6 flex flex-col justify-center items-center px-4 py-6 shadow-md rounded">
+					<div className="w-full flex items-center justify-center">
+						<input
+						{...register("name",
+							{required: true})}
+							aria-invalid={errors.name ? "true" : "false"}
+							placeholder="Activity Name"
+							className="w-3/4 rounded text-xl font-semibold text-amber-500 hover:bg-zinc-50 bg-slate-50 py-1 pl-1 border-0 outline-none border-solid border-b border-amber-500 hover:border-b-2"
+						/>
+						{errors.name?.type === "required" && (
+							<p role="alert" className="text-red-500">Activity name is required</p>
+						)}
+					</div>
+					<div className="w-3/4 flex items-center justify-center flex-row gap-x-4">
+						<div className="w-5/6 flex items-center justify-center">
+							<select
+								id="categories"
+								{...register("category",
+									{required: true})}
+									aria-invalid={errors.category ? "true" : "false"}
+									className="w-full rounded text-md text-gray-500 hover:bg-zinc-50 bg-slate-50 pb-1 pl-1 outline-none border border-solid border-gray-300"
+							>
+								<option value="">Select category...</option>
+								<option value="Run">Run</option>
+								<option value="Run">Walk</option>
+							</select>
+							{errors.category?.type === "required" && (
+								<p role="alert" className="text-red-500">Category is required</p>
+							)}
+						</div>
+						<div className="w-1/6 flex items-center justify-start">
+							<input
+							{...register("distance",
+								{required: true})}
+								aria-invalid={errors.distance ? "true" : "false"}
+								type="number"
+								placeholder="Km"
+								className="w-full rounded text-md text-gray-500 hover:bg-zinc-50 bg-slate-100 py-1 pl-1 outline-none border border-solid border-gray-300"
+							/>
+							{errors.distance?.type === "required" && (
+								<p role="alert" className="text-red-500">Distance is required</p>
+							)}
+						</div>
+					</div>
+					<div className="flex justify-center items-center gap-y-1 m-3 text-md">
+						<label className="text-gray-500 w-1/3"><FontAwesomeIcon icon={faClock} className="px-2 text-gray-500" />Start:</label>
+						<input
+						{...register("start",
+							{required: true})}
+							aria-invalid={errors.start ? "true" : "false"}
+							type="datetime-local"
+							className="w-2/3 rounded text-gray-500 hover:bg-zinc-50 bg-slate-100 p-1 outline-none border border-solid border-gray-300"
+						/>
+						{errors.start?.type === "required" && (
+							<p role="alert" className="text-red-500">Start time is required</p>
+						)}
+					</div>
+					<div className="flex justify-center items-center gap-y-1 m-3 text-md">
+						<label className="text-gray-500 w-1/3"><FontAwesomeIcon icon={faClock} className="px-2 text-gray-500" />End:</label>
+						<input
+						{...register("end",
+							{required: true})}
+							aria-invalid={errors.end ? "true" : "false"}
+							type="datetime-local"
+							className="w-2/3 rounded text-gray-500 hover:bg-zinc-50 bg-slate-100 p-1 outline-none border border-solid border-gray-300"
+						/>
+						{errors.end?.type === "required" && (
+							<p role="alert" className="text-red-500">End time is required</p>
+						)}
+					</div>
+					<div>
+						<input
+							type="submit"
+							value="Create"
+							className="w-28 cursor-pointer text-sm rounded-md border border-amber-500 border-b-2 hover:border-b text-amber-500 px-2 py-1 w-30 hover:scale-105 hover:bg-slate-150"
+						/>
+					</div>
+				</form>
 			</div>
-      <div className="flex flex-col gap-y-1 m-3">
-				<label>Category</label>
-				<input
-				{...register("category",
-					{required: true})}
-					aria-invalid={errors.category ? "true" : "false"}
-				/>
-				{errors.category?.type === "required" && (
-          <p role="alert" className="text-red-500">Category is required</p>
-        )}
-			</div>
-      <div className="flex flex-col gap-y-1 m-3">
-				<label>Distance(km):</label>
-				<input
-				{...register("distance",
-					{required: true})}
-					aria-invalid={errors.distance ? "true" : "false"}
-				/>
-				{errors.distance?.type === "required" && (
-          <p role="alert" className="text-red-500">Distance is required</p>
-        )}
-			</div>
-      <div className="flex flex-col gap-y-1 m-3">
-				<label>Start:</label>
-				<input
-				{...register("start",
-					{required: true})}
-					aria-invalid={errors.start ? "true" : "false"}
-          type="datetime-local"
-				/>
-				{errors.start?.type === "required" && (
-          <p role="alert" className="text-red-500">Start time is required</p>
-        )}
-			</div>
-      <div className="flex flex-col gap-y-1 m-3">
-				<label>End:</label>
-				<input
-				{...register("end",
-					{required: true})}
-					aria-invalid={errors.end ? "true" : "false"}
-          type="datetime-local"
-				/>
-				{errors.end?.type === "required" && (
-          <p role="alert" className="text-red-500">End time is required</p>
-        )}
-			</div>
-      <div>
-        <input
-          type="submit"
-          value="Create"
-          className="cursor-pointer rounded-md bg-amber-500 hover:bg-lime-500 text-white p-1 w-20"
-        />
-      </div>
-    </form>
+		</div>
   )
 }
 
