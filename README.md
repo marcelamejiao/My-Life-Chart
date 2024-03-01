@@ -49,6 +49,19 @@ npm run dev
 
 ![Chart](./assets/img/chart.png)
 
+* **Dashboard**
+
+![Dashboard](./assets/img/dashboard.png)
+
+* **Activities list**
+
+![Activities](./assets/img/activities.png)
+
+* **Create activity form**
+
+![Form](./assets/img/activity-form.png)
+
+
 ## **Deployed link**
 
 💡 Live version: [Coming soon!]()
