@@ -4,11 +4,17 @@ import HoverableNavLink from "../HoverableNavLink/HoverableNavLink";
 
 type Props = {
   selectedUser: User | null
+  setSelectedUser(selectedUser: User): void;
 }
 
-const SideBar = ({ selectedUser }:Props) => {
+const SideBar = ({ selectedUser, setSelectedUser }:Props) => {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    sessionStorage.clear();
+    setSelectedUser(selectedUser); 
+    navigate("/");
+}
   // For TypeScript requirements
   if(!selectedUser) {
     return ;
@@ -41,6 +47,12 @@ const SideBar = ({ selectedUser }:Props) => {
         <HoverableNavLink
             pathName="/reports"
             linkText="My Reports">
+        </HoverableNavLink>
+      </li>
+      <li className="p-4" onClick={handleLogout}>
+        <HoverableNavLink
+            pathName="/"
+            linkText="Logout">
         </HoverableNavLink>
       </li>
     </ul>

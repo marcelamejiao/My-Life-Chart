@@ -57,7 +57,8 @@ function App() {
           path="/dashboard"
           element={
             <Layout 
-              selectedUser={selectedUser}>
+              selectedUser={selectedUser}
+              setSelectedUser={setSelectedUser}>
               <Dashboard
                 selectedUser={selectedUser}
               /> 
